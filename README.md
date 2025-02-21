@@ -45,15 +45,21 @@ Este guia assume que você já possui conhecimento prévio sobre as ferramentas 
 ### Como Utilizar 🚀
 
 1. Clone este repositório.
-2. Crie um arquivo `.env` baseado em `.env.sample` e preencha os dados necessários.
+2. No terminal, execute o seguinte comando para instalar as dependências:
+
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+3. Crie um arquivo `.env` baseado em `.env.sample` e preencha os dados necessários.
    - **VERIFY\_TOKEN**: Utilizado pelo Facebook para validar o webhook.
    - **WHATSAPP\_TOKEN** e **PHONE\_NUMBER\_ID**: Gerados no painel do Facebook.
-3. No diretório do projeto, execute:
+4. No diretório do projeto, execute:
 
    ```sh
    docker compose up -d
    ```
 
-4. Nos logs do NGROK, copie o endpoint gerado e cadastre no painel do Facebook junto com seu **VERIFY\_TOKEN**.
+5. Nos logs do NGROK, copie o endpoint gerado e cadastre no painel do Facebook junto com seu **VERIFY\_TOKEN**.
 
 E pronto! 🎉 Seu bot estará funcionando. 🤖🔥
