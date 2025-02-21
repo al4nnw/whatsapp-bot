@@ -1,0 +1,4 @@
+.env
+
+# ignore all pycache folders
+__pycache__/

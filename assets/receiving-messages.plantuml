@@ -1,0 +1,29 @@
+@startuml
+actor User
+participant "WhatsApp" as WA
+participant "Queue" as Redis
+participant "Worker" as Worker
+participant "ChatGPT" as LLM
+
+activate Redis #IndianRed
+
+Redis -> Redis: Await 10 seconds
+Redis -> Worker: Start processing message
+deactivate Redis
+activate Worker #LightBlue
+
+alt Is there any newer messages from this User?
+  Worker -> Worker: Skip processing
+else No newer messages
+  Worker -> Worker: Transcribe audios, join messages and images
+  Worker -> LLM: Send processed message
+  activate LLM #MediumPurple
+  LLM -> Worker: Receive response
+  deactivate LLM
+  Worker -> WA: Send response
+  activate WA #LightGreen
+  deactivate Worker
+  WA -> User: Deliver bot response
+  deactivate WA
+end
+@enduml
