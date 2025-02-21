@@ -2,15 +2,11 @@
 
 O objetivo deste projeto é entender o funcionamento das APIs do WhatsApp e OpenAI, criando um bot de finanças pessoais. Ele permite registrar seus gastos diários de forma automatizada. Para saber como instalar, [clique aqui](#instalacao).
 
----
-
 ## Recebendo Mensagens 📩
 
 ![Receiving Messages](assets/receiving-messages.png)
 
 A aplicação conta com um webhook cadastrado no painel do Facebook, que recebe as mensagens enviadas pelos usuários e as armazena em uma fila. O processamento dessas mensagens ocorre após um intervalo de 10 segundos.
-
----
 
 ## Processando Mensagens ⚙️
 
@@ -21,8 +17,6 @@ Decorridos os 10 segundos, a aplicação inicia o processamento das mensagens, v
 Se não houver mensagens mais recentes, todas as mensagens e mídias do usuário são agrupadas para formar um único prompt. Isso inclui a transcrição de áudios, caso existam. Após essa consolidação, a mensagem é enviada ao ChatGPT, que extrai informações sobre transações financeiras e gera uma saída estruturada.
 
 Atualmente, o bot apenas extrai as informações e responde ao usuário. A persistência dos dados em um banco de dados não é o foco deste projeto, mas quem sabe em uma próxima versão... 😉
-
----
 
 ## Instalação 🛠️
 
